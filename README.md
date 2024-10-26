@@ -8,10 +8,7 @@ This program will propose the most similar drinks to the chosen one
 
 ## Demo
 
-https://github.com/user-attachments/assets/4dc7565f-83fd-492c-b1bd-83058639f6c3
-
-
-
+https://github.com/user-attachments/assets/c31ad3a4-0696-4f45-a43b-82c66d7a4ae7
 
 
 
