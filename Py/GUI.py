@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-from main import kmeans, points, categories, glasses, alcoholic, tags, ingredients
+from clustering import clustering, points, categories, glasses, alcoholic, tags, ingredients
 
 
 # Graphical interface using tkinter
@@ -40,7 +40,7 @@ class App(tk.Tk):
         selected_cocktail = self.combo.get()
         for point in points:
             if point[0] == selected_cocktail:
-                similar = kmeans.compare(point)
+                similar = clustering.compare(point)
                 break
 
         similar_info = []
@@ -54,7 +54,3 @@ class App(tk.Tk):
             similar_info.append(info)
 
         self.result_label.config(text="Similar drinks:\n" + "\n\n".join(similar_info))
-
-
-app = App()
-app.mainloop()
