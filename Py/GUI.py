@@ -13,13 +13,10 @@ class App(tk.Tk):
         # Create main frame with a canvas and vertical scrollbar
         self.main_frame = tk.Frame(self)
         self.main_frame.pack(fill=tk.BOTH, expand=1)
-
         self.canvas = tk.Canvas(self.main_frame)
         self.canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=1)
-
         self.scrollbar = ttk.Scrollbar(self.main_frame, orient=tk.VERTICAL, command=self.canvas.yview)
         self.scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-
         self.canvas.configure(yscrollcommand=self.scrollbar.set)
         self.canvas.bind('<Configure>', lambda e: self.canvas.configure(scrollregion=self.canvas.bbox("all")))
 
@@ -36,16 +33,25 @@ class App(tk.Tk):
         self.combo.pack(pady=10)
         self.combo.bind("<<ComboboxSelected>>", self.show_similar)
 
-        # Label to display similar cocktails
+        # Label to display selected cocktail details and similar cocktails
+        self.selected_label = tk.Label(self.second_frame, text="", justify=tk.LEFT)
+        self.selected_label.pack(pady=10)
         self.result_label = tk.Label(self.second_frame, text="", justify=tk.LEFT)
         self.result_label.pack(pady=10)
 
     def show_similar(self, event):
         selected_cocktail = self.combo.get()
 
-        # Find the selected cocktail and retrieve similar cocktails
+        # Find and display the selected cocktail's details
         for point in points:
             if point[0] == selected_cocktail:
+                category = list(categories.keys())[list(categories.values()).index(point[1])]
+                glass = list(glasses.keys())[list(glasses.values()).index(point[2])]
+                alc = list(alcoholic.keys())[list(alcoholic.values()).index(point[3])]
+                tags_list = [list(tags.keys())[list(tags.values()).index(t)] for t in point[4]]
+                ingredients_list = [list(ingredients.keys())[list(ingredients.values()).index(i)] for i in point[5]]
+                selected_info = f"Selected Cocktail:\n{point[0]}:\n  Category: {category}\n  Glass: {glass}\n  Alcoholic: {alc}\n  Tags: {', '.join(tags_list)}\n  Ingredients: {', '.join(ingredients_list)}"
+                self.selected_label.config(text=selected_info)
                 similar = clustering.compare(point)
                 break
 
