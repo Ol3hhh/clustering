@@ -2,14 +2,6 @@
 
 Cocktail dataset clustering
 
-## Table of Contents
-- [Introduction](#introduction)
-- [Features](#features)
-- [Demo](#demo)
-- [Usage](#usage)
-- [Collaboration with Yjs](#collaboration-with-yjs)
-- [Styling with Tailwind CSS](#styling-with-tailwind-css)
-
 ## Introduction
 
 This program will propose the most similar drinks to the chosen one 
