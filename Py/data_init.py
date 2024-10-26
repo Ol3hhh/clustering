@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Specified path to the JSON file
-path = 'D:/My/Pwr/SolVro/recrutation/Source/cocktail_dataset.json'
+path = '../Source/cocktail_dataset.json'
 
 # Loading the JSON file into a DataFrame
 df = pd.read_json(path)
