@@ -2,7 +2,7 @@ name: my_environment
 channels:
   - defaults
 dependencies:
-  - python=3.13.0  # Lub wersja Python, której używasz
+  - python=3.13.0  # Adjust to the Python version you need
   - dateutils=0.6.12
   - numpy=2.1.2
   - pandas=2.2.3
@@ -10,3 +10,4 @@ dependencies:
   - python-dateutil=2.9.0.post0
   - pytz=2024.2
   - six=1.16.0
+  # Note: Tkinter is typically bundled with Python; no need to specify it here
